@@ -19,6 +19,7 @@ export const GithubProvider = ({ children }) => {
     const params = new URLSearchParams({
       q: text,
     })
+   
     const response = await fetch(`${GITHUB_URL}/search/users?${params}`, {
       headers: {
         Authorization: `token ${GITHUB_TOKEN}`,
@@ -50,7 +51,7 @@ export const GithubProvider = ({ children }) => {
         users: state.users,
         loading: state.loading,
         searchUsers: searchUsers,
-        clearUsers: clearUsers
+        clearUsers: clearUsers,
       }}>
       {children}
     </GithubContext.Provider>

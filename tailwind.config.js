@@ -1,8 +1,18 @@
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
+  // theme: {
+  //   extend: {},
+  // },
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        ...fontFamily,
+        sans: ['Nunito', 'ui-sans-serif', 'system-ui'],
+      },
+    },
   },
   variants: {
     extend: {},
