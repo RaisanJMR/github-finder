@@ -49,7 +49,7 @@ export const GithubProvider = ({ children }) => {
     } else {
     }
     const data = await response.json()
-
+    
     dispatch({
       type: 'GET_USER',
       payload: data,
@@ -58,15 +58,21 @@ export const GithubProvider = ({ children }) => {
 
   const getUserRepos = async (login) => {
     setLoading()
-
-    const response = await fetch(`${GITHUB_URL}/users/${login}/repos`, {
-      headers: {
-        Authorization: `token ${GITHUB_TOKEN}`,
-      },
+    const params = new URLSearchParams({
+      sort: 'created',
+      per_page: 10,
     })
+    const response = await fetch(
+      `${GITHUB_URL}/users/${login}/repos?${params}`,
+      {
+        headers: {
+          Authorization: `token ${GITHUB_TOKEN}`,
+        },
+      }
+    )
 
     const data = await response.json()
-
+  
     dispatch({
       type: 'GET_REPOS',
       payload: data,
