@@ -17,3 +17,4 @@ react application to search github users using github REST API
  - react reducer
  - axios instance for fetching data from api end point
 
+view live [click here](https://github-finder-beryl.vercel.app)
